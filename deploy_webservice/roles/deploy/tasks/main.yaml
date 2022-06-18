@@ -1,0 +1,14 @@
+---
+  # Copying the service.yaml ddin the remote node which will be further used to create the pods and deployment in the kubernetes cluster
+
+- name: copying file with playbook
+  template:
+    src: service.yaml 
+    dest: /tmp/service.yaml
+
+  # Creating a Kubernetes pod in ata-namespace using file stored locally
+
+- name: Create a pod
+  k8s:
+    state: present      # State=present when you need to create new object
+    src: /tmp/service.yaml

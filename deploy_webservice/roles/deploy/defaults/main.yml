@@ -1,0 +1,3 @@
+image: webservice:latest
+port: 80
+replicas: 2
